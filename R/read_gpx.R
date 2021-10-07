@@ -7,7 +7,7 @@ read_gpx = function(file){
   #'
   #' @param file A path to a .gpx file
   #'
-  #' @return A data frame.
+  #' @return List of data frames.
 
   if(!file.exists(file)) stop("Specified file does not exist")
   data = xml2::read_html(file)
@@ -23,7 +23,7 @@ extract_tracks = function(data){
   segments = lapply(tracks,rvest::html_nodes,"trkseg")
   points = lapply(segments,rvest::html_nodes,"trkpt")
   output = lapply(points,process_points)
-  output = lapply(seq_along(output),function(i){output[[i]]$`Segment ID` = i;return(output[[i]])})
+  output = lapply(seq_along(output),function(i){output[[i]][["Segment ID"]] = i;return(output[[i]])})
   return(output)
 }
 
@@ -60,10 +60,14 @@ extract_feature = function(points,feature){
 
 extract_extensions = function(points){
   extensions = rvest::html_nodes(points,"extensions")
-  children = rvest::html_children(extensions)
-  output = xml2::as_list(children)
-  output = lapply(output,unlist)
-  output = do.call(rbind,output)
+  if (length(extensions) == 0) {
+    output = rep(NA, length(points))
+  } else {
+    children = rvest::html_children(extensions)
+    output = xml2::as_list(children)
+    output = lapply(output,unlist)
+    output = do.call(rbind,output)
+  }
   return(output)
 }
 
