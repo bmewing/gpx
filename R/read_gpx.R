@@ -3,7 +3,7 @@
 read_gpx = function(file){
   #' @title Read a .gpx file into a data.frame
   #'
-  #' @description Read a .gpx file into a data.frame
+  #' @description Read a .gpx file into a list of data.frames
   #'
   #' @param file A path to a .gpx file
   #'
