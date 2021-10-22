@@ -1,2 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^.*\.yml$
+examples
+^cran-comments\.md$
+internal_data

@@ -10,8 +10,15 @@ read_gpx(file)
 \item{file}{A path to a .gpx file}
 }
 \value{
-A data frame.
+List of data frames.
+
+#' @examples
+\dontrun{
+hikes = read_gpx('hiking_file.gpx')
+hikes$tracks
+hikes$routes
+}
 }
 \description{
-Read a .gpx file into a data.frame
+Read a .gpx file into a list of data.frames
 }

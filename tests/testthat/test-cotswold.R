@@ -1,0 +1,11 @@
+test_that("cotswold", {
+  expect_match(fn <- "cotswold-way", "*")
+  expect_equal(class(test <- read_gpx(paste0('testdata/', fn ,'.gpx'))), "list")
+  expect_equal(class(check_route <- read.csv(paste0('testdata/check/', fn ,'_route.csv'))), "data.frame")
+  expect_equal(class(check_track <- read.csv(paste0('testdata/check/', fn ,'_track.csv'))), "data.frame")
+  expect_equal(nrow(check_route), nrow(test$routes[[1]]))
+  expect_equal(nrow(check_track), length(test$tracks))
+  expect_true(all(test$routes[[1]]$Latitude == check_route$Latitude))
+  expect_true(all(test$routes[[1]]$Longitude == check_route$Longitude))
+  expect_true(all(test$routes[[1]]$Elevation == check_route$Elevation))
+})
