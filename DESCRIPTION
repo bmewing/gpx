@@ -7,12 +7,11 @@ Description: Process open standard GPX files into data.frames for further use an
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Depends: R (>= 3.5)
+Depends: R (>= 4.0)
 Imports:
   xml2,
   rvest,
   lubridate
 Suggests:
-  covr,
   testthat
 RoxygenNote: 6.0.1
