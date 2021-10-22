@@ -9,7 +9,7 @@ read_gpx = function(file){
   #'
   #' @return List of data frames.
   #'
-  #' #' @examples
+  #' @examples
   #' \dontrun{
   #' hikes = read_gpx('hiking_file.gpx')
   #' hikes$tracks

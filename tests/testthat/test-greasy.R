@@ -1,8 +1,8 @@
 test_that("greasy", {
   expect_match(fn <- "greasy-creek-to-roan-high-knob", "*")
   expect_equal(class(test <- read_gpx(paste0('testdata/', fn ,'.gpx'))), "list")
-  expect_equal(class(check_route <- read.csv(paste0('testdata/check/', fn ,'_route.csv'))), "data.frame")
-  expect_equal(class(check_track <- read.csv(paste0('testdata/check/', fn ,'_track.csv'))), "data.frame")
+  expect_equal(class(check_route <- read.csv(paste0('testdata/', fn ,'_route.csv'))), "data.frame")
+  expect_equal(class(check_track <- read.csv(paste0('testdata/', fn ,'_track.csv'))), "data.frame")
   expect_equal(nrow(check_route), nrow(test$routes[[1]]))
   expect_equal(nrow(check_track), length(test$tracks))
   expect_true(all(test$routes[[1]]$Latitude == check_route$Latitude))
