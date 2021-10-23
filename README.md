@@ -1,6 +1,6 @@
 # Lightweight GPX file parser for R
 
-[![Build Status](https://travis-ci.org/bmewing/gpx.svg?branch=master)](https://travis-ci.org/bmewing/gpx) [![Coverage Status](https://img.shields.io/codecov/c/github/bmewing/gpx/master.svg)](https://codecov.io/github/bmewing/gpx?branch=master) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/gpx)](https://CRAN.R-project.org/package=gpx) ![](http://cranlogs.r-pkg.org/badges/gpx)
+[![Build Status](https://travis-ci.com/bmewing/gpx.svg?branch=master)](https://travis-ci.com/bmewing/gpx) [![Coverage Status](https://img.shields.io/codecov/c/github/bmewing/gpx/master.svg)](https://codecov.io/github/bmewing/gpx?branch=master) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/gpx)](https://CRAN.R-project.org/package=gpx) ![](http://cranlogs.r-pkg.org/badges/gpx)
 
 ## Install it!
 
