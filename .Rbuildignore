@@ -5,3 +5,4 @@ examples
 ^cran-comments\.md$
 internal_data
 \.lintr
+^CRAN-RELEASE$
