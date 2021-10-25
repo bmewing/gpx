@@ -1,6 +1,6 @@
 #' @export
 
-read_gpx = function(file){
+read_gpx = function(file) {
   #' @title Read a .gpx file into a data.frame
   #'
   #' @description Read a .gpx file into a list of data.frames
@@ -16,11 +16,11 @@ read_gpx = function(file){
   #' hikes$routes
   #' }
 
-  if(!file.exists(file)) stop("Specified file does not exist")
+  if (!file.exists(file)) stop("Specified file does not exist")
   data = xml2::read_html(file)
   routes = extract_routes(data)
   tracks = extract_tracks(data)
   output = list(routes = routes
-               ,tracks = tracks)
+              , tracks = tracks)
   return(output)
 }
