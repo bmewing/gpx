@@ -20,7 +20,9 @@ read_gpx = function(file) {
   data = xml2::read_html(file)
   routes = extract_routes(data)
   tracks = extract_tracks(data)
+  waypoints = extract_waypoints(data)
   output = list(routes = routes
-              , tracks = tracks)
+              , tracks = tracks
+              , waypoints = waypoints)
   return(output)
 }

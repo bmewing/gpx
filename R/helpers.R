@@ -22,6 +22,16 @@ extract_routes = function(data) {
   return(output)
 }
 
+extract_waypoints = function(data) {
+  points = rvest::html_nodes(data, "wpt")
+  if (length(points) == 0) {
+    output = generate_empty()
+  } else {
+    output = process_waypoints(points)
+  }
+  return(output)
+}
+
 generate_empty = function() {
   empty = data.frame("Elevation" = logical()
                    , "Time" = logical()
@@ -65,6 +75,25 @@ extract_extensions = function(points) {
     output = lapply(output, unlist)
     output = do.call(rbind, output)
   }
+  return(output)
+}
+
+process_waypoints = function(points) {
+  attrs = rvest::html_attrs(points)
+  df = do.call(rbind, attrs)
+  ele = as.numeric(extract_feature(points, "ele"))
+  time = lubridate::as_datetime(extract_feature(points, "time"))
+  lat = as.numeric(extract_feature(points, "lat"))
+  lon = as.numeric(extract_feature(points, "lon"))
+  name = extract_feature(points, "name")
+  desc = extract_feature(points, "desc")
+  output = data.frame("Elevation" = ele
+                      , "Time" = time
+                      , "Latitude" = lat
+                      , "Longitude" = lon
+                      , "Name" = name
+                      , "Description" = desc
+                      , stringsAsFactors = FALSE)
   return(output)
 }
 
