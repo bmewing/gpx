@@ -7,6 +7,7 @@ extract_tracks = function(data) {
   } else {
     output = lapply(points, process_points)
     output = lapply(seq_along(output), function(i){output[[i]][["Segment ID"]] = i;return(output[[i]])}) #nolint
+    names(output) = vapply(tracks, extract_feature, NA_character_, "name")
   }
   return(output)
 }
