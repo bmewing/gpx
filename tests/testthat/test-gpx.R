@@ -15,4 +15,7 @@ test_that("basic functionality", {
   expect_true(all(is.numeric(greasy_test$routes[[1]][["Elevation"]])))
   expect_true(all(is.numeric(greasy_test$routes[[1]][["Latitude"]])))
   expect_true(all(is.numeric(greasy_test$routes[[1]][["Longitude"]])))
+
+  expect_equal(class(track_name <- read_gpx("testdata/Bayes_Mountain_Fire_Tower_TN.gpx")), "list") #nolint
+  expect_named(track_name$tracks, "Kingsport Hiking")
 })
