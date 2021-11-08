@@ -1,4 +1,4 @@
-# gpx 1.0.1
+# gpx 1.1.0
 
-* Fixed Long Double issue in tests
-* Modified output to always include an empty data.frame with no track or route is present.
+* Track names are now extracted and used to name the track list elements
+* Waypoints are now extracted
